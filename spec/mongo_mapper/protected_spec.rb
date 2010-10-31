@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe "Protected" do
+describe "MongoMapper AttrProtected" do
   before(:each) do
     @foo = Protected.create!
   end

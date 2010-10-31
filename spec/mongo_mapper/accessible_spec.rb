@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe "AttrAccessible" do
+describe "MongoMapper AttrAccessible" do
   before(:each) do
     @foo = Accessible.create!
   end

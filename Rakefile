@@ -13,7 +13,8 @@ begin
     gem.email = "tamosunas@gmail.com"
     gem.homepage = "http://github.com/scotttam/whiny_attr_accessible"
     gem.authors = ["Scott J. Tamosunas"]
-    gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_development_dependency "rspec", ">= 2.0.1"
+    gem.add_development_dependency "mocha", ">= 0.9.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -23,6 +24,16 @@ end
 
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.pattern = FileList['spec/**/*_spec.rb']
+  t.rcov = false
+end
+
+RSpec::Core::RakeTask.new(:spec_mongo_mapper) do |t|
+  t.pattern = FileList['spec/mongo_mapper/**/*_spec.rb']
+  t.rcov = false
+end
+
+RSpec::Core::RakeTask.new(:spec_active_record) do |t|
+  t.pattern = FileList['spec/active_record/**/*_spec.rb']
   t.rcov = false
 end
 

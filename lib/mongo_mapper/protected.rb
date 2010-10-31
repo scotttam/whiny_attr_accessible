@@ -3,7 +3,6 @@ if development_or_test?
     module Plugins
       module Protected
         module InstanceMethods
-          include PrintDiffs
           
           protected
 
