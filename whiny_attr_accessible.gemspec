@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{whiny_attr_accessible}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Scott J. Tamosunas"]
-  s.date = %q{2010-10-29}
+  s.date = %q{2010-10-31}
   s.description = %q{Make attr_accessible and attr_protected throw exceptions in non-production mode, yo.}
   s.email = %q{tamosunas@gmail.com}
   s.extra_rdoc_files = [
@@ -25,16 +25,20 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "lib/active_record/mass_assignment_security.rb",
      "lib/mongo_mapper/accessible.rb",
-     "lib/mongo_mapper/print_diffs.rb",
      "lib/mongo_mapper/protected.rb",
      "lib/util/helpers.rb",
-     "lib/util/whiny_attr_accessible_error.rb",
+     "lib/util/print_diffs.rb",
      "lib/whiny_attr_accessible.rb",
+     "spec/.rspec",
+     "spec/active_record/mass_assignment_security_spec.rb",
      "spec/mongo_mapper/accessible_spec.rb",
      "spec/mongo_mapper/protected_spec.rb",
-     "spec/spec.opts",
-     "spec/spec_helper.rb"
+     "spec/spec_helper.rb",
+     "spec/spec_helpers/active_record_spec_helper.rb",
+     "spec/spec_helpers/mongo_mapper_spec_helper.rb",
+     "whiny_attr_accessible.gemspec"
   ]
   s.homepage = %q{http://github.com/scotttam/whiny_attr_accessible}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -42,9 +46,12 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Make attr_accessible and attr_protected throw exceptions in non-production mode}
   s.test_files = [
-    "spec/mongo_mapper/accessible_spec.rb",
+    "spec/active_record/mass_assignment_security_spec.rb",
+     "spec/mongo_mapper/accessible_spec.rb",
      "spec/mongo_mapper/protected_spec.rb",
-     "spec/spec_helper.rb"
+     "spec/spec_helper.rb",
+     "spec/spec_helpers/active_record_spec_helper.rb",
+     "spec/spec_helpers/mongo_mapper_spec_helper.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -52,12 +59,15 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_development_dependency(%q<rspec>, [">= 2.0.1"])
+      s.add_development_dependency(%q<mocha>, [">= 0.9.9"])
     else
-      s.add_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_dependency(%q<rspec>, [">= 2.0.1"])
+      s.add_dependency(%q<mocha>, [">= 0.9.9"])
     end
   else
-    s.add_dependency(%q<rspec>, [">= 1.2.9"])
+    s.add_dependency(%q<rspec>, [">= 2.0.1"])
+    s.add_dependency(%q<mocha>, [">= 0.9.9"])
   end
 end
 
